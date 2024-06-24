@@ -1,0 +1,6 @@
+class AppConstance {
+  static const page = 1;
+  static const pageSize = 10;
+  static const arLang = "ar";
+  static const enLang = "en";
+}
