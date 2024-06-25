@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-extension SpacingExtension on double {
-  Widget get hGap => SizedBox(height: this);
-  Widget get wGap => SizedBox(width: this);
+extension SpacingExtension on num {
+  Widget get hGap => SizedBox(height: double.tryParse(toString()));
+  Widget get wGap => SizedBox(width: double.tryParse(toString()));
 }
 
 extension ContextExtension on BuildContext {
