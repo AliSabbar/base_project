@@ -3,6 +3,7 @@ import 'package:base_project/core/routes/route_provider.dart';
 import 'package:base_project/core/utils/language_provider.dart';
 import 'package:base_project/core/utils/theme/dark_theme.dart';
 import 'package:base_project/core/utils/theme/light_theme.dart';
+import 'package:base_project/core/utils/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,11 +22,12 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final route = ref.watch(routeProvider);
     final language = ref.watch(localeProvider);
+    final theme = ref.watch(themeProvider);
     return MaterialApp.router(
       title: 'APP NAME',
       theme: LightTheme.init(context),
       darkTheme: DarkTheme.init(context),
-      // themeMode: appSetting.getThemeMode(),
+      themeMode: theme,
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,

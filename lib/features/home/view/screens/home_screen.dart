@@ -1,6 +1,7 @@
 import 'package:base_project/core/utils/app_constance.dart';
 import 'package:base_project/core/utils/extension/app_extension.dart';
 import 'package:base_project/core/utils/language_provider.dart';
+import 'package:base_project/core/utils/theme_provider.dart';
 import 'package:base_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(S.of(context).home),
+          title: Text(context.tr.home),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,23 +22,52 @@ class HomeScreen extends StatelessWidget {
             Consumer(
               builder: (context, ref, child) {
                 return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
                         onPressed: () {
-                          ref.watch(langProvider.notifier).changeLanguage("ar");
+                          ref
+                              .watch(langProvider.notifier)
+                              .changeLanguage(AppConstance.arLang);
                         },
                         child: const Text(AppConstance.arLang)),
-                    40.0.wGap,
                     ElevatedButton(
                         onPressed: () {
-                          ref.watch(langProvider.notifier).changeLanguage("en");
+                          ref
+                              .watch(langProvider.notifier)
+                              .changeLanguage(AppConstance.enLang);
                         },
                         child: const Text(AppConstance.enLang)),
+                    ElevatedButton(
+                        onPressed: () {
+                          ref
+                              .watch(themeProvider.notifier)
+                              .changeTheme(ThemeMode.dark);
+                        },
+                        child: Text(S.of(context).home)),
+                    ElevatedButton(
+                        onPressed: () {
+                          ref
+                              .watch(themeProvider.notifier)
+                              .changeTheme(ThemeMode.light);
+                        },
+                        child: const Text('light')),
                   ],
                 );
               },
             ),
+            100.hGap,
+            Container(
+              width: context.width,
+              height: context.height * .12,
+              color: Colors.blueGrey,
+              child: Center(
+                child: Text(
+                  context.tr.home,
+                  style: context.text.displayLarge,
+                ),
+              ),
+            )
           ],
         ));
   }
