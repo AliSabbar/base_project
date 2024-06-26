@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(S.of(context).home),
+          title: Text(context.tr.home),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                               .watch(themeProvider.notifier)
                               .changeTheme(ThemeMode.dark);
                         },
-                        child: const Text('dark')),
+                        child: Text(S.of(context).home)),
                     ElevatedButton(
                         onPressed: () {
                           ref
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
               color: Colors.blueGrey,
               child: Center(
                 child: Text(
-                  S.of(context).home,
+                  context.tr.home,
                   style: context.text.displayLarge,
                 ),
               ),
