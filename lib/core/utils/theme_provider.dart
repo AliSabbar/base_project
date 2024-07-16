@@ -9,15 +9,20 @@ final themeProvider =
 class ThemeProvider extends Notifier<ThemeMode> {
   @override
   build() {
-    final currentTheme =
-        SharedPref.getData(SharedPrefKeys.theme) == ThemeMode.light.toString()
-            ? ThemeMode.light
-            : ThemeMode.dark;
-    return currentTheme;
+    state = checkTheme();
+    return state;
   }
 
   void changeTheme(ThemeMode themeMode) {
     state = themeMode;
     SharedPref.setData(key: SharedPrefKeys.theme, value: state.toString());
+  }
+
+  ThemeMode checkTheme() {
+    final sharedTheme =
+        SharedPref.getData(SharedPrefKeys.theme) ?? 'ThemeMode.light';
+    final theme =
+        sharedTheme == 'ThemeMode.light' ? ThemeMode.light : ThemeMode.dark;
+    return theme;
   }
 }

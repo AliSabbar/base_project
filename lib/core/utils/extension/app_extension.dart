@@ -2,8 +2,13 @@ import 'package:base_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 extension SpacingExtension on num {
-  Widget get hGap => SizedBox(height: double.tryParse(toString()));
-  Widget get wGap => SizedBox(width: double.tryParse(toString()));
+  Widget get hGap => SizedBox(height: toDouble());
+  Widget get wGap => SizedBox(width: toDouble());
+  EdgeInsets get allPad => EdgeInsets.all(toDouble());
+  EdgeInsets get syPad =>
+      EdgeInsets.symmetric(horizontal: toDouble(), vertical: toDouble());
+  EdgeInsets get horPad => EdgeInsets.symmetric(horizontal: toDouble());
+  EdgeInsets get verPad => EdgeInsets.symmetric(vertical: toDouble());
 }
 
 extension ContextExtension on BuildContext {
