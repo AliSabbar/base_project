@@ -1,8 +1,7 @@
 import 'package:base_project/core/utils/app_constance.dart';
-import 'package:base_project/core/utils/extension/app_extension.dart';
+import 'package:base_project/core/utils/app_extension.dart';
 import 'package:base_project/core/utils/language_provider.dart';
 import 'package:base_project/core/utils/theme_provider.dart';
-import 'package:base_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -24,34 +23,38 @@ class HomeScreen extends StatelessWidget {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                        onPressed: () {
-                          ref
-                              .watch(langProvider.notifier)
-                              .changeLanguage(AppConstance.arLang);
-                        },
-                        child: const Text(AppConstance.arLang)),
-                    ElevatedButton(
-                        onPressed: () {
-                          ref
-                              .watch(langProvider.notifier)
-                              .changeLanguage(AppConstance.enLang);
-                        },
-                        child: const Text(AppConstance.enLang)),
-                    ElevatedButton(
-                        onPressed: () {
-                          ref
-                              .watch(themeProvider.notifier)
-                              .changeTheme(ThemeMode.dark);
-                        },
-                        child: Text(S.of(context).home)),
-                    ElevatedButton(
-                        onPressed: () {
-                          ref
-                              .watch(themeProvider.notifier)
-                              .changeTheme(ThemeMode.light);
-                        },
-                        child: const Text('light')),
+                    Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              ref
+                                  .watch(langProvider.notifier)
+                                  .changeLanguage(AppConstance.arLang);
+                            },
+                            child: const Text(AppConstance.arLang))),
+                    Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              ref
+                                  .watch(langProvider.notifier)
+                                  .changeLanguage(AppConstance.enLang);
+                            },
+                            child: const Text(AppConstance.enLang))),
+                    Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              ref
+                                  .watch(themeProvider.notifier)
+                                  .changeTheme(ThemeMode.dark);
+                            },
+                            child: const Text("dark"))),
+                    Expanded(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              ref
+                                  .watch(themeProvider.notifier)
+                                  .changeTheme(ThemeMode.light);
+                            },
+                            child: const Text('light'))),
                   ],
                 );
               },
@@ -67,7 +70,9 @@ class HomeScreen extends StatelessWidget {
                   style: context.text.displayLarge,
                 ),
               ),
-            )
+            ),
+            30.hGap,
+            TextFormField(),
           ],
         ));
   }
