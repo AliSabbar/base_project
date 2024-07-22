@@ -1,5 +1,5 @@
 # base_project
-RUN COMMANDS TO RENAME APP NAME AND BUNDLE
+RUN COMMANDS TO RENAME APP NAME AND BUNDLE AND CHANGE APP ICON
 
 # FIRST
 ```
@@ -19,4 +19,9 @@ rename setBundleId --targets android --value "com.example.bundleId"
 rename getAppName --targets ios
 
 rename getBundleId --targets android
+```
+# CHANGE APP ICON
+```
+flutter pub get
+flutter pub run flutter_launcher_icons
 ```

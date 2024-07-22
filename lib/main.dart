@@ -1,5 +1,6 @@
 import 'package:base_project/core/network/local/shared_pref.dart';
 import 'package:base_project/core/routes/route_provider.dart';
+import 'package:base_project/core/utils/app_constance.dart';
 import 'package:base_project/core/utils/language_provider.dart';
 import 'package:base_project/core/utils/theme/dark_theme.dart';
 import 'package:base_project/core/utils/theme/light_theme.dart';
@@ -24,7 +25,7 @@ class MyApp extends ConsumerWidget {
     final language = ref.watch(localeProvider);
     final theme = ref.watch(themeProvider);
     return MaterialApp.router(
-      title: 'APP NAME',
+      title: AppConstance.appName,
       theme: LightTheme.init(context),
       darkTheme: DarkTheme.init(context),
       themeMode: theme,

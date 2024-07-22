@@ -14,6 +14,7 @@ class ThemeProvider extends Notifier<ThemeMode> {
   }
 
   void changeTheme(ThemeMode themeMode) {
+    if (state == themeMode) return;
     state = themeMode;
     SharedPref.setData(key: SharedPrefKeys.theme, value: state.toString());
   }

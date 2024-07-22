@@ -1,5 +1,6 @@
 import 'package:base_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 extension SpacingExtension on num {
   Widget get hGap => SizedBox(height: toDouble());
@@ -17,5 +18,6 @@ extension ContextExtension on BuildContext {
   double get width => MediaQuery.of(this).size.width;
   TextTheme get text => Theme.of(this).textTheme;
   ThemeData get theme => Theme.of(this);
+  String get locale => Localizations.localeOf(this).languageCode;
   S get tr => S.of(this);
 }

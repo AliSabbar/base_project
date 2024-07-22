@@ -21,6 +21,40 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) =>
-      <String, Function>{"home": MessageLookupByLibrary.simpleMessage("Home")};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
+        "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "clear": MessageLookupByLibrary.simpleMessage("Clear"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "fieldRequired":
+            MessageLookupByLibrary.simpleMessage("This field is required"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "inValidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
+        "inValidPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Invalid phone number"),
+        "info": MessageLookupByLibrary.simpleMessage("Info"),
+        "loading": MessageLookupByLibrary.simpleMessage("Loading"),
+        "nameMustBeAtLeast3Characters": MessageLookupByLibrary.simpleMessage(
+            "Name must be at least 3 characters"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+        "passwordMustBeAtLeast6Characters":
+            MessageLookupByLibrary.simpleMessage(
+                "Password must be at least 6 characters"),
+        "remove": MessageLookupByLibrary.simpleMessage("Remove"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "select": MessageLookupByLibrary.simpleMessage("Select"),
+        "send": MessageLookupByLibrary.simpleMessage("Send"),
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+        "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "view": MessageLookupByLibrary.simpleMessage("View"),
+        "warning": MessageLookupByLibrary.simpleMessage("Warning"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes")
+      };
 }

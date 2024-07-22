@@ -1,5 +1,6 @@
 import 'package:base_project/core/utils/app_constance.dart';
 import 'package:base_project/core/utils/app_extension.dart';
+import 'package:base_project/core/utils/app_validation.dart';
 import 'package:base_project/core/utils/language_provider.dart';
 import 'package:base_project/core/utils/theme_provider.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,12 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            30.hGap,
+            const Text("is Arabic"),
+            context.locale == AppConstance.arLang
+                ? const Icon(Icons.check)
+                : const Icon(Icons.close),
+            30.hGap,
             Consumer(
               builder: (context, ref, child) {
                 return Row(
@@ -72,7 +79,10 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             30.hGap,
-            TextFormField(),
+            TextFormField(
+              validator: (value) =>
+                  AppValidation(context).validateEmail(value ?? ""),
+            ),
           ],
         ));
   }
