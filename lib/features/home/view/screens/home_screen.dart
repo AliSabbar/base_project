@@ -6,12 +6,11 @@ import 'package:base_project/core/utils/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final valid = ref.watch(appValidationProvider(context));
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(context.tr.home),
@@ -81,11 +80,14 @@ class HomeScreen extends ConsumerWidget {
             ),
             30.hGap,
             TextFormField(
-              validator: (value) => valid.validateEmail(value ?? ""),
+              validator: (value) =>
+                  AppValidation.fieldRequired(context, value ?? ""),
             ),
             30.hGap,
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                print(AppValidation.validateEmail(context, "").hashCode);
+              },
               child: const Text("Submit"),
             ),
           ],
