@@ -21,6 +21,7 @@ rename getAppName --targets ios
 rename getBundleId --targets android
 ```
 # CHANGE APP ICON
+only change the image in assets/icons/app_icon.png then run
 ```
 flutter pub get
 flutter pub run flutter_launcher_icons

@@ -1,5 +1,12 @@
 import 'package:base_project/core/utils/app_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final appValidationProvider =
+    Provider.family<AppValidation, BuildContext>((ref, context) {
+  return AppValidation(context);
+});
 
 class AppValidation {
   const AppValidation(this.ctx);
