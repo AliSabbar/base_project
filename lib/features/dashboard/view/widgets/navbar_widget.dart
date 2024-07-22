@@ -10,6 +10,7 @@ class NavBarWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final index = ref.watch(dashboardProvider);
     return Container(
       color: Colors.blue,
       height: 80,
@@ -20,6 +21,7 @@ class NavBarWidget extends ConsumerWidget {
             padding: 30.allPad,
             icon: const Icon(Icons.home),
             onPressed: () {
+              if (index == 0) return;
               ref.watch(dashboardProvider.notifier).changeIndex(0);
               context.goNamed(NameRoutes.defaultNameRoute);
             },
@@ -28,6 +30,7 @@ class NavBarWidget extends ConsumerWidget {
             padding: 30.allPad,
             icon: const Icon(Icons.search),
             onPressed: () {
+              if (index == 1) return;
               ref.watch(dashboardProvider.notifier).changeIndex(1);
               context.goNamed(NameRoutes.dummyNameRoute);
             },
