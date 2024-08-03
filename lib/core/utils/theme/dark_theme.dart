@@ -13,6 +13,10 @@ abstract class DarkTheme {
         appBarTheme: appBarTheme(),
         inputDecorationTheme: inputDecorationTheme(),
         elevatedButtonTheme: elevatedButtonTheme(context),
+        textButtonTheme: textButtonThemeData(),
+        dialogTheme: dialogTheme(),
+        bottomSheetTheme: bottomSheetTheme(),
+        listTileTheme: listTileTheme(),
       );
 
   static ColorScheme colorScheme() => const ColorScheme.light(
@@ -71,6 +75,50 @@ abstract class DarkTheme {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
           ),
           minimumSize: WidgetStateProperty.all(Size(ctx.width, 50)),
+        ),
+      );
+
+  static TextButtonThemeData textButtonThemeData() => TextButtonThemeData(
+          style: TextButton.styleFrom(
+        textStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+        ),
+      ));
+
+  static DialogTheme dialogTheme() => DialogTheme(
+        shape: RoundedRectangleBorder(borderRadius: 24.radius),
+        backgroundColor: AppColors.scaffoldDarkThemeColor,
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+          fontFamily: AppConstance.appFont,
+        ),
+        contentTextStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          fontFamily: AppConstance.appFont,
+        ),
+      );
+
+  static BottomSheetThemeData bottomSheetTheme() => BottomSheetThemeData(
+        backgroundColor: AppColors.scaffoldDarkThemeColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+      );
+
+  static ListTileThemeData listTileTheme() => ListTileThemeData(
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+          fontFamily: AppConstance.appFont,
         ),
       );
 }
